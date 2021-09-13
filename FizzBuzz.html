@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz</title>
+</head>
+<body>
+    <header>
+        <h1>FizzBuzz</h1>
+    </header>
+    <main>
+        <section>
+            <button id="nappi">FizzBuzz</button>
+            <article id="fb"></article>
+        </section>
+    </main>
+</body>
+<script>
+    const btn = document.getElementById("nappi");
+    const fizz = document.getElementById("fb");
+
+    const buzz = () => {
+    for(let number=1;number<101; number++) {
+  if(number%3 == 0 && number%5 == 0) {
+    fizz.innerHTML += "FizzBuzz <br>";
+  } else if(number%3 == 0) {
+    fizz.innerHTML += "Fizz <br>";
+  } else if (number%5 == 0 && number%3 != 0) {
+    fizz.innerHTML += "Buzz <br>"
+  } else {
+    fizz.innerHTML += number + "<br>";
+  }
+}
+};
+
+btn.addEventListener("click", buzz);
+</script>
+</html>

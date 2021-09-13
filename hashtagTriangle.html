@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashtag Triangle</title>
+</head>
+<body>
+    <button id="nappi">Click Me!</button>
+    <div id="triangle"></div>
+</body>
+
+<script>
+     let hashtag = "";
+for(let i=0; i<8;i++) {
+ 
+  triangle.innerHTML += hashtag + "<br>";
+  hashtag+= "#";
+};
+
+const nappula = document.getElementById("nappi");
+ 
+        function muutaTeksti() {
+            const muutaP = document.getElementById("triangle");
+            muutaP.innerHTML = hashtag;
+        };
+        nappula.addEventListener("click", muutaTeksti);
+</script>
+</html>

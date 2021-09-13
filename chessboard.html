@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+</head>
+<body>
+    <section>
+        <article>
+            <form id="pickANumber" onsubmit="return false">
+                <label for="number" id="number-label">Pick a number</label><br>
+                <input type="number" id="number" name="number" placeholder="Enter a number" min="2" max="50">
+                <input type="submit" id="submit" value="Submit">
+                </form>
+            <p id="chessboard"></p>
+        </article>
+    </section>
+</body>
+<script>
+
+    let board = document.getElementById("chessboard");
+
+   const printChessboard = () => {
+       let str = " ";
+let size = document.getElementById("number").value;
+for(let i = 0; i<size; i++) {
+    if(i % 2 == 0) {
+    str += " ";
+  };
+  for(let j = 0; j<size; j++) {
+    if(j % 2 == 0) {
+      str += " ";
+  } else {
+    str += "#";
+  };
+};
+  str += "<br>";
+};
+board.innerHTML = str;
+};
+
+submit.addEventListener("click", printChessboard);
+</script>
+</html>
