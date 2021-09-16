@@ -5,13 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chessboard</title>
+    <style>
+
+      table {
+        border-spacing: 0;
+      }
+
+      .cell {
+          height: 30px;
+          width: 30px;
+          border: 1.5px solid grey;
+          border-style: inset;
+      }
+
+      .blackcell {
+          background-color: black;
+      }
+
+      .whitecell {
+          background-color: white;
+      }
+  </style>
 </head>
 <body>
     <section>
         <article>
             <form id="pickANumber" onsubmit="return false">
                 <label for="number" id="number-label">Pick a number</label><br>
-                <input type="number" id="number" name="number" placeholder="Enter a number" min="2" max="50">
+                <input type="number" id="number" name="number" placeholder="Enter an even number" min="2" max="50" step="2">
                 <input type="submit" id="submit" value="Submit">
                 </form>
             <p id="chessboard"></p>
@@ -20,26 +41,27 @@
 </body>
 <script>
 
-    let board = document.getElementById("chessboard");
+let board = document.getElementById("chessboard");
 
-   const printChessboard = () => {
-       let str = " ";
+const printChessboard = () => {
+ let table = document.createElement("table");
 let size = document.getElementById("number").value;
 for(let i = 0; i<size; i++) {
-    if(i % 2 == 0) {
-    str += " ";
-  };
-  for(let j = 0; j<size; j++) {
-    if(j % 2 == 0) {
-      str += " ";
-  } else {
-    str += "#";
-  };
+let tr = document.createElement('tr');
+for(let j = 0; j<size; j++) {
+ let td = document.createElement('td');
+ if((i + j) % 2 == 0) {
+   td.setAttribute('class', 'cell whitecell');
+   tr.appendChild(td);
+} else {
+ td.setAttribute('class', 'cell blackcell');
+ tr.appendChild(td);
 };
-  str += "<br>";
 };
-board.innerHTML = str;
+table.appendChild(tr);
 };
+board.appendChild(table);
+   };
 
 submit.addEventListener("click", printChessboard);
 </script>
